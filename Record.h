@@ -13,17 +13,17 @@ int RecordOut()
 	std::string line;
 	std::string B;
 
-	std::ifstream in("C:/Users/Екатерина Великая/source/repos/tetris/tetris/record.txt"); // окрываем файл для чтения
-	if (in.is_open())//Пока файл in открыт в потоке для чтения
+	std::ifstream in("C:/Users/Г…ГЄГ ГІГҐГ°ГЁГ­Г  Г‚ГҐГ«ГЁГЄГ Гї/source/repos/tetris/tetris/record.txt"); // РѕРєСЂС‹РІР°РµРј С„Р°Р№Р» РґР»СЏ С‡С‚РµРЅРёСЏ
+	if (in.is_open())//РџРѕРєР° С„Р°Р№Р» in РѕС‚РєСЂС‹С‚ РІ РїРѕС‚РѕРєРµ РґР»СЏ С‡С‚РµРЅРёСЏ
 	{
-		while (getline(in, line))//считываем файл построчно, хоть там и 1 число.
+		while (getline(in, line))///СЃС‡РёС‚С‹РІР°РµРј С„Р°Р№Р» РїРѕСЃС‚СЂРѕС‡РЅРѕ
 		{
-			B = line;// B присваиваем строчке line из текста, хоть там и 1 число.
+			B = line;// B РїСЂРёСЃРІР°РёРІР°РµРј СЃС‚СЂРѕС‡РєРµ line РёР· С‚РµРєСЃС‚Р°
 		}
 	}
-	in.close();     // закрываем файл
+	in.close();     // Р·Р°РєСЂС‹РІР°РµРј С„Р°Р№Р»
 
-	std::stringstream A;//Переменная преобразовыватель из типа стр в тип инт.
+	std::stringstream A;//РџРµСЂРµРјРµРЅРЅР°СЏ РїСЂРµРѕР±СЂР°Р·РѕРІС‹РІР°С‚РµР»СЊ РёР· С‚РёРїР° СЃС‚СЂ РІ С‚РёРї РёРЅС‚.
 	int C;
 	A << B;
 	A >> C;
@@ -32,8 +32,9 @@ int RecordOut()
 }
 int RecordIn(int score)
 {
-	std::ofstream out;          // поток для записи
-	out.open("C:/Users/Екатерина Великая/source/repos/tetris/tetris/record.txt"); // окрываем файл для записи с удалением предыдущего
+	std::ofstream out;          //  РїРѕС‚РѕРє РґР»СЏ Р·Р°РїРёСЃРё
+	out.open("C:/Users/Г…ГЄГ ГІГҐГ°ГЁГ­Г  Г‚ГҐГ«ГЁГЄГ Гї/source/repos/tetris/tetris/record.txt"); // РѕРєСЂС‹РІР°РµРј С„Р°Р№Р» РґР»СЏ Р·Р°РїРёСЃРё СЃ СѓРґР°Р»РµРЅРёРµРј РїСЂРµРґС‹РґСѓС‰РµРіРѕ
+	if (out.is_open())
 	if (out.is_open())
 	{
 		out << score << std::endl;
