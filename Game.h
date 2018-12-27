@@ -11,7 +11,7 @@ const int M = 20;
 const int N = 10;
 int score = 0;
 
-int field[M][N] = { 0 };
+int field[M][N] = { 0 };//Игровое поле очистили
 
 struct Point
 {
@@ -27,9 +27,9 @@ int figures[7][4] =
 	3,5,7,6,//J
 	2,3,4,5,//O
 
-};
+};//Создаем все фигурки по координатам
 
-bool check()
+bool check()//Проверка координат создаваемой фигуры
 {
 	for (int i = 0; i < 4; i++)
 		if (a[i].x < 0 || a[i].x >= N || a[i].y >= M) return 0;
