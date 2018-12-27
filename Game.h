@@ -200,7 +200,7 @@ public :
 	int Rotate(bool rotate) {
 		if (rotate)
 		{
-			Point p = a[1];//center of rotation
+			Point p = a[1];//центр вращения
 			for (int i = 0; i < 4; i++)
 			{
 				int x = a[i].y - p.y;
