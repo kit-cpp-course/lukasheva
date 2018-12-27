@@ -18,16 +18,16 @@ public:;
 		std::string B;
 
 		std::ifstream in("C:/Users/Руз/source/repos/Project1/Project1/record.txt"); // окрываем файл для чтения
-		if (in.is_open())
+		if (in.is_open())//Пока файл in открыт в потоке для чтения
 		{
-			while (getline(in, line))
+			while (getline(in, line))//считываем файл построчно
 			{
-				B = line;
+				B = line;//B присваиваем строчке line из текста
 			}
 		}
 		in.close();     // закрываем файл
 
-		std::stringstream A;
+		std::stringstream A;//Переменная преобразовыватель из типа стр в тип инт.
 		int C;
 		A << B;
 		A >> C;
