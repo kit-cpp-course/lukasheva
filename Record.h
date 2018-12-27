@@ -6,38 +6,43 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <string>
 
 using namespace std;
-int RecordOut()
-{
-	std::string line;
-	std::string B;
 
-	std::ifstream in("C:/Users/Åêàòåðèíà Âåëèêàÿ/source/repos/tetris/tetris/record.txt"); // окрываем файл для чтения
-	if (in.is_open())//Пока файл in открыт в потоке для чтения
+class Record {
+public:;
+	int read()
 	{
-		while (getline(in, line))///считываем файл построчно
+		std::string line;
+		std::string B;
+
+		std::ifstream in("C:/Users/Руз/source/repos/Project1/Project1/record.txt"); // окрываем файл для чтения
+		if (in.is_open())
 		{
-			B = line;// B присваиваем строчке line из текста
+			while (getline(in, line))
+			{
+				B = line;
+			}
 		}
+		in.close();     // закрываем файл
+
+		std::stringstream A;
+		int C;
+		A << B;
+		A >> C;
+
+		return C;
 	}
-	in.close();     // закрываем файл
-
-	std::stringstream A;//Переменная преобразовыватель из типа стр в тип инт.
-	int C;
-	A << B;
-	A >> C;
-
-	return C;
-}
-int RecordIn(int score)
-{
-	std::ofstream out;          //  поток для записи
-	out.open("C:/Users/Åêàòåðèíà Âåëèêàÿ/source/repos/tetris/tetris/record.txt"); // окрываем файл для записи с удалением предыдущего
-	if (out.is_open())
-	if (out.is_open())
+	int write(int score)
 	{
-		out << score << std::endl;
+		std::ofstream out;          // поток для записи
+		out.open("C:/Users/Руз/source/repos/Project1/Project1/record.txt"); // окрываем файл для записи
+		if (out.is_open())
+		{
+			out << score << std::endl;
+		}
+		return 0;
 	}
-	return 0;
-}
+
+};
