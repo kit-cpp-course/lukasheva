@@ -25,8 +25,8 @@ public:;
 		   while (window.isOpen())
 		   {
 			   maxscore = record.read();
-			   Event e;
-			   while (window.pollEvent(e))
+			   Event e;//КЛасс отвечающий за события на клавиатуре и не только
+			   while (window.pollEvent(e))//Пока не случилось какой либо действие ввиду нажатия клавиши
 			   {
 				   if (e.type == Event::Closed)
 					   window.close();
@@ -35,7 +35,7 @@ public:;
 					   else if (e.key.code == Keyboard::Escape) return 0;
 			   }
 			   window.clear(Color::Green);
-			   window.draw(s);
+			   window.draw(s);//Представить рисунок , но не вывести на экран
 
 
 			   Font font;//шрифт 
