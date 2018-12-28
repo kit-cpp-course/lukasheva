@@ -10,39 +10,42 @@
 
 using namespace std;
 
-class Record {
+class Record { //Класс отвечающий за запись в текстовый файл и чтение из него
 public:;
-	int read()
-	{
-		std::string line;
-		std::string B;
 
-		std::ifstream in("C:/Users/Руз/source/repos/Project1/Project1/record.txt"); // окрываем файл для чтения
-		if (in.is_open())//Пока файл in открыт в потоке для чтения
-		{
-			while (getline(in, line))//считываем файл построчно
-			{
-				B = line;//B присваиваем строчке line из текста
-			}
-		}
-		in.close();     // закрываем файл
+	   std::string path = "C:/Users/Руз/source/repos/Project1/Project1/record.txt";// поле для пути до текстового файла где хранятся рекорды
 
-		std::stringstream A;//Переменная преобразовыватель из типа стр в тип инт.
-		int C;
-		A << B;
-		A >> C;
+	   int read()
+	   {
+		   std::string line;
+		   std::string B;
 
-		return C;
-	}
-	int write(int score)
-	{
-		std::ofstream out;          // поток для записи
-		out.open("C:/Users/Руз/source/repos/Project1/Project1/record.txt"); // окрываем файл для записи
-		if (out.is_open())
-		{
-			out << score << std::endl;
-		}
-		return 0;
-	}
+		   std::ifstream in(path); // окрываем файл для чтения
+		   if (in.is_open())
+		   {
+			   while (getline(in, line))
+			   {
+				   B = line;// Считываем файл построчно 
+			   }
+		   }
+		   in.close(); // закрываем файл
+
+		   std::stringstream A;
+		   int C;
+		   A « B;
+		   A » C;
+
+		   return C;
+	   }
+	   int write(int score)
+	   {
+		   std::ofstream out; // поток для записи
+		   out.open(path); // окрываем файл для записи
+		   if (out.is_open())
+		   {
+			   out « score « std::endl; //Записываем в файл с удалением старых данных
+		   }
+		   return 0;
+	   }
 
 };
