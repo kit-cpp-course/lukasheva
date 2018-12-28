@@ -17,7 +17,7 @@ public:;
 	   Texture t; //поле класса текстур
 
 	   void loadfromfile() { //конструктор создания текстуры
-		   t.loadFromFile("images/tetris.jpg");
+		   t.loadFromFile("images/tetris.jpg");		   
 	   }
 
 	   Record record; //поле класса рекорд
@@ -26,7 +26,7 @@ public:;
 
 		   RenderWindow window(VideoMode(500, 750), "Menu"); //Создаем окно игровое
 
-		   loadfromfile();
+		   loadfromfile(); //вызвали конструктор
 
 		   Sprite s(t); //Редактируем загруженное изображение если необходимо
 
@@ -34,18 +34,20 @@ public:;
 		   int scores = 0;
 		   while (window.isOpen())
 		   {
-			   maxscore = record.read();
+			   maxscore = record.read(); //считали рекорд из файла
 			   Event e;
 			   while (window.pollEvent(e))// Устанавливаем действия которые буду происходить при нажатии клавиш
 			   {
-				   if (e.type == Event::Closed)
+				   if (e.type == Event::Closed) //если нажали крестик - выход
 					   window.close();
 				   if (e.type == Event::KeyPressed)
-					   if (e.key.code == Keyboard::Enter) play.game();
-					   else if (e.key.code == Keyboard::Escape) return 0;
+					   if (e.key.code == Keyboard::Enter) play.game(); //если нажали энтер - играем
+					   else if (e.key.code == Keyboard::Escape) return 0; //если нажали эскейп - выход
 			   }
 			   window.clear(Color::Green);
 			   window.draw(s);
+
+			   //Работа с текстом и вывод его на экран
 
 			   Font font;//шрифт 
 			   font.loadFromFile("CyrilicOld.ttf");//передаем нашему шрифту файл шрифта
@@ -57,8 +59,8 @@ public:;
 
 			   Text recordtext("", font, 20);//создаем объект текст. закидываем в объект текст строку, шрифт, размер шрифта(в пикселях);//сам объект текст (не строка)
 			   recordtext.setFillColor(Color::Cyan);//покрасили текст в красный. если убрать эту строку, то по умолчанию он белый
-			   std::ostringstream record; // объявили переменную
-			   record « maxscore; //занесли в нее число очков, то есть формируем строку
+			   std::ostringstream record;    // объявили переменную
+			   record << maxscore;		//занесли в нее число очков, то есть формируем строку
 			   recordtext.setString("Игровой рекорд: " + record.str() + " очков.");//задаем строку тексту и вызываем сформированную выше строку методом .str() 
 			   recordtext.setPosition(210, 630);
 			   window.draw(recordtext);//рисую этот текст
